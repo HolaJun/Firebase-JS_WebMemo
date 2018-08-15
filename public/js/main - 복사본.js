@@ -2,6 +2,7 @@
 $(document).ready(function(){
 
 	var index, auth, database, userInfo, selectedKey;
+	var items = getFromLocal('memos');
 	// 파이어베이스 초기화
 	var config = {
 	  apiKey: "AIzaSyB9Uuks71XG9Cv2j5oQ0xuWn03ptD22Y3Y",
@@ -11,6 +12,8 @@ $(document).ready(function(){
 	  storageBucket: "webmemo-b9b71.appspot.com",
 	  messagingSenderId: "657504313482"
 	};
+
+	loadList(items);
 
 	firebase.initializeApp(config);
 
@@ -24,11 +27,10 @@ $(document).ready(function(){
 			auth.onAuthStateChanged(function(user) {
 				if( user ) {
 					// 인증 성공시
-					console.log("[★] firebase connect sussess");
-					console.log("[★] user infomation ↓");
+					console.log("firebase connect sussess");
 					console.log(user);
 					//메모리스트 출력
-					// userInfo = 연결할 UID명
+					// userInfo = 연결 DB명
 					userInfo = "memoWebTest";
 					get_memo_list();
 				} else {
@@ -37,51 +39,6 @@ $(document).ready(function(){
 				}
 			});
 	};
-
-	// 메모리스트 불러오기
-	function get_memo_list() {
-		console.log("[★]userInfo.uid: " + userInfo);
-		// 데이터베이스의 경로를 가져옴
-		// 비동기방식으로 데이터를 가져옴
-		var memoRef = database.ref('memos/' + userInfo);
-
-		memoRef.on('child_added', on_child_added);
-		memoRef.on('child_changed', function(data) {
-			console.log('data.key: ' + data.key);
-			console.log('[★]data.val(): ' + data.val());
-
-			var key = data.key;
-			var txt = data.val().txt;
-
-			$("#" + key + ">.title").text(title);
-			$("#" + key + ">.txt").text(txt);
-		});
-	}
-
-	function on_child_added(data) {
-		/*  데이터 구조
-			{
-				txt : "메모 내용",
-				title: "메모 제목",
-				updateDate : "메모 수정일",
-				createDate : "메모생성날짜"
-			}
-		*/
-		var key = data.key;
-		var memoData = data.val();
-		var txt = memoData.txt;
-
-		console.log("[★] key: " + key);
-		console.log("[★] memoData: ↓");
-		console.log(memoData)
-		console.log("[★] txt: " + txt);
-		console.log(data.val());
-
-		$('ul').append(	'<li class= "list-group-item" data-toggle="modal" data-target="#editModal">'
-										+ txt +
-										'<span class="glyphicon glyphicon-remove"></span></li>'
-									);
-	}
 
 	// 'button' 태그를 비활성화
 	$('button').prop('disabled', true);
@@ -98,30 +55,23 @@ $(document).ready(function(){
 		}
 	});
 
-	// main-input에 키를 입력하는 경우
+	// main-input에 내용이 입력된 경우
 	$('#main-input').keypress(function(e){
 		if(e.which === 13) { // 아무 키나 입력된 경우
-			console.log('main-input에 키가 입력되었음');
 			if ($('#main-input').val().length !== 0)
-					$('#main-button').click();
+				$('#main-button').click();
 		}
 	});
 
 	// 추가 버튼을 눌렀을 경우
 	$('#main-button').click(function(){
-		// 데이터를 저장할 UID 주소 초기화
-		var memoRef = database.ref('memos/' + userInfo);
-		// main-input 입력한 데이터 값
 		var value = $('#main-input').val();
-		memoRef.push({
-			txt: value,
-			createDate: new Date().getTime()
-		});
-		// value에 아무것도 입력이 되어있지 않으면 추가되지 않음.
-		if (value == '') {
-	    return;
-	  }
+		items.push(value);
+		//console.log(items[0]);
 		$('#main-input').val('');
+		loadList(items);
+		storeToLocal('memos', items);
+		// set button to
 		$('button').prop('disabled', true);
 	});
 
@@ -150,10 +100,33 @@ $(document).ready(function(){
 		storeToLocal("memos", items);
 	});
 
-  // 로그인 버튼 클릭시 구글인증팝업 열림
+	// 메모리스트 Load
+	function loadList(items){
+		$('li').remove();
+		if(items.length > 0) {
+			for(var i = 0; i < items.length; i++) {
+				// 클릭시 moadl 동작(data-toggle). id가 editModal인 태그 실행(data-target)
+				$('ul').append(	'<li class= "list-group-item" data-toggle="modal" data-target="#editModal">'
+												+ items[i] +
+												'<span class="glyphicon glyphicon-remove"></span></li>'
+										  );
+			}
+		}
+	};
+
+	function storeToLocal(key, items){
+		localStorage[key] = JSON.stringify(items);
+	}
+
+	function getFromLocal(key){
+		if(localStorage[key])
+			return JSON.parse(localStorage[key]);
+		else
+			return [];
+	}
+
   $("#googleLogin").click(function() {
       googleLoginPopup();
   });
 
-// end js onload
 });

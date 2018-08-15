@@ -15,3 +15,18 @@
 [debug] [2018-08-15T09:18:54.368Z] >>> HTTP REQUEST GET https://admin.firebase.com/v1/database/webmemo-b9b71/tokens  
   
  Wed Aug 15 2018 18:18:54 GMT+0900 (대한민국 표준시)
+[debug] [2018-08-15T09:18:55.015Z] <<< HTTP RESPONSE 200
+[debug] [2018-08-15T09:18:55.015Z] >>> HTTP REQUEST GET https://cloudresourcemanager.googleapis.com/v1/projects/webmemo-b9b71  
+  
+ Wed Aug 15 2018 18:18:55 GMT+0900 (대한민국 표준시)
+[debug] [2018-08-15T09:18:56.038Z] <<< HTTP RESPONSE 200
+[info] 
+[info] === Serving from 'C:\Users\HolaJun\Desktop\memoWebApp'...
+[info] 
+[debug] [2018-08-15T09:18:56.047Z] >>> HTTP REQUEST GET https://mobilesdk-pa.googleapis.com/v1/projects/657504313482/clients/_:getWebAppConfig  
+  
+ Wed Aug 15 2018 18:18:56 GMT+0900 (대한민국 표준시)
+[debug] [2018-08-15T09:18:56.977Z] <<< HTTP RESPONSE 200
+[info] i  hosting: Serving hosting files from: public
+[info] +  hosting: Local server: http://localhost:5000
+
