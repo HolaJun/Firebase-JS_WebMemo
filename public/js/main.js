@@ -3,23 +3,29 @@ $(document).ready(function(){
 	var items = getFromLocal('memos');
 	var index;
 	loadList(items);
-	// if input is empty disable button
+
+
+	// 'button' 태그를 비활성화
 	$('button').prop('disabled', true);
 
+	// input 태그에 키보드 키를 눌렀다 떼는 경우
 	$('input').keyup(function(){
-		if($(this).val().length !== 0) {
-			$('button').prop('disabled', false);
+		if($(this).val().length !== 0) { // this=input
+			$('button').prop('disabled', false); // button 활성화
 		} else {
-			$('button').prop('disabled', true);
+			$('button').prop('disabled', true); // button 비활성화
 		}
 	});
-	// bind input enter with button submit
+
+	// main-input에 내용이 입력된 경우
 	$('#main-input').keypress(function(e){
-		if(e.which === 13) {
+		if(e.which === 13) { // 아무 키나 입력된 경우
 			if ($('#main-input').val().length !== 0)
 				$('#main-button').click();
 		}
 	});
+
+	// 추가 버튼을 눌렀을 경우
 	$('#main-button').click(function(){
 		var value = $('#main-input').val();
 		items.push(value);
@@ -30,7 +36,8 @@ $(document).ready(function(){
 		// set button to
 		$('button').prop('disabled', true);
 	});
-	// delete one item
+
+	// 메모 삭제 버튼을 눌렀을 경우
 	$('ul').delegate("span", "click", function(event){
 		event.stopPropagation();
 		index = $('span').index(this);
@@ -40,21 +47,22 @@ $(document).ready(function(){
 
 	});
 
-	// edit panel
+	// 메모를 클릭 후 수정할 내용을 입력하는 경우
 	$('ul').delegate('li', 'click', function(){
 		index = $('li').index(this);
 		var content = items[index];
 		console.log(content);
-		$('#edit-input').val(content );
+		$('#edit-input').val(content);
 	});
 
+	// 메모 '수정' 버튼을 클릭했을 경우
 	$('#edit-button').click(function(){
 		items[index] = $('#edit-input').val();
 		loadList(items);
 		storeToLocal("memos", items);
 	});
 
-	// loadList
+	// 메모리스트 Load
 	function loadList(items){
 		$('li').remove();
 		if(items.length > 0) {
@@ -77,5 +85,9 @@ $(document).ready(function(){
 		else
 			return [];
 	}
+
+  $("#googleLogin").click(function() {
+      alert('test');
+  });
 
 });

@@ -1,7 +1,10 @@
 
+
+
+// 전역변수
 var auth, database, userInfo, selectedKey;
 
-// Initialize Firebase
+// 파이어베이스 초기화
 var config = {
   apiKey: "AIzaSyB9Uuks71XG9Cv2j5oQ0xuWn03ptD22Y3Y",
   authDomain: "webmemo-b9b71.firebaseapp.com",
@@ -10,8 +13,9 @@ var config = {
   storageBucket: "webmemo-b9b71.appspot.com",
   messagingSenderId: "657504313482"
 };
-
+// Creates and initializes a Firebase app instance.
 firebase.initializeApp(config);
+
 auth = firebase.auth();
 database = firebase.database();
 var authProvider = new firebase.auth.GoogleAuthProvider();
@@ -19,10 +23,10 @@ var authProvider = new firebase.auth.GoogleAuthProvider();
 auth.onAuthStateChanged(function(user) {
   if( user ) {
     // 인증 성공시
-    console.log("sussess");
+    console.log("firebase connect sussess");
     console.log(user);
     //메모리스트 출력
-    // userInfo = "W3YdIVvpoXMpDZBRMFDGMJSWmSq2";
+    // userInfo = 연결 DB명
     userInfo = "memoWebTest";
     get_memo_list();
   } else {
@@ -31,6 +35,7 @@ auth.onAuthStateChanged(function(user) {
   }
 });
 
+// 메모리스트 가져오기
 function get_memo_list() {
   console.log("[★]userInfo.uid: " + userInfo);
   var memoRef = database.ref('memos/' + userInfo);
@@ -85,6 +90,7 @@ function fn_get_data_one(key) {
       });
 }
 
+// 삭제 알림
 function fn_delete_data(key) {
   if(!confirm('삭제하시겠습니까?')) {
     return;
@@ -95,6 +101,7 @@ function fn_delete_data(key) {
   initMemo();
 }
 
+// 데이터 저장
 function save_data() {
   var memoRef = database.ref('memos/' + userInfo);
   var txt = $(".textarea").val();
@@ -128,4 +135,5 @@ $(function() {
   $(".textarea").blur(function() {
     save_data();
   });
+
 });
