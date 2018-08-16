@@ -1,6 +1,3 @@
-
-
-
 // 전역변수
 var auth, database, userInfo, selectedKey;
 

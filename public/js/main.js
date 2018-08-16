@@ -1,4 +1,10 @@
-// Javascript Onload
+
+function hello() {
+	alert('hello');
+}
+
+// Javascript Onload. html소스를 먼저 읽고 가장 마지막에 JS소스를 읽는다.
+// $(function(){ } 이렇게 표현해도 된다.
 $(document).ready(function(){
 
 	var index, auth, database, userInfo, selectedKey;
@@ -28,7 +34,7 @@ $(document).ready(function(){
 					console.log("[★] user infomation ↓");
 					console.log(user);
 					//메모리스트 출력
-					// userInfo = 연결할 UID명
+					// userUid = 연결할 UID명
 					userInfo = "memoWebTest";
 					get_memo_list();
 				} else {
@@ -75,12 +81,18 @@ $(document).ready(function(){
 		console.log("[★] memoData: ↓");
 		console.log(memoData)
 		console.log("[★] txt: " + txt);
-		console.log(data.val());
 
-		$('ul').append(	'<li class= "list-group-item" data-toggle="modal" data-target="#editModal">'
+		$('ul').append(	'<li class="list-group-item">'
 										+ txt +
-										'<span class="glyphicon glyphicon-remove"></span></li>'
+										'<span onclick="hello();" class="glyphicon glyphicon-remove"></span>' +
+										'<span class="glyphicon glyphicon-edit"></span>' +
+										'</li>'
 									);
+
+		// $('ul').append(	'<li class="list-group-item" data-toggle="modal" data-target="#editModal">'
+		// 								+ txt +
+		// 								'<span class="glyphicon glyphicon-remove"></span></li>'
+		// 							);
 	}
 
 	// 'button' 태그를 비활성화
@@ -125,18 +137,20 @@ $(document).ready(function(){
 		$('button').prop('disabled', true);
 	});
 
-	// 메모 삭제 버튼을 눌렀을 경우
-	$('ul').delegate("span", "click", function(event){
-		event.stopPropagation();
-		index = $('span').index(this);
-		$('li').eq(index).remove();
-		items.splice(index, 1);
-		storeToLocal('memos', items);
 
-	});
+	// 메모 삭제 버튼을 눌렀을 경우
+	function deleteData(key) {
+		$('ul').delegate("span", "click", function(event){
+			event.stopPropagation();
+			index = $('span').index(this);
+			$('li').eq(index).remove();
+			var memoRef = database.ref('memos/' + userInfo + '/' + key);
+		  memoRef.remove(); // firebase remove
+		});
+	}
 
 	// 메모를 클릭 후 수정할 내용을 입력하는 경우
-	$('ul').delegate('li', 'click', function(){
+	$('ul').on('li', 'click', function(){
 		index = $('li').index(this);
 		var content = items[index];
 		console.log(content);
@@ -145,9 +159,6 @@ $(document).ready(function(){
 
 	// 메모 '수정' 버튼을 클릭했을 경우
 	$('#edit-button').click(function(){
-		items[index] = $('#edit-input').val();
-		loadList(items);
-		storeToLocal("memos", items);
 	});
 
   // 로그인 버튼 클릭시 구글인증팝업 열림

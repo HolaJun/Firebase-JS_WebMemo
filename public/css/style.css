@@ -1,9 +1,15 @@
 li:hover {
 	background-color: #c6dcf2;
 	transition: 0.7s;
-	cursor: pointer;
+	/* cursor: pointer; */
 }
 
 span{
 	float: right;
+	cursor: pointer;
+}
+
+#spanEdit {
+	margin-right:100px;
+	width: 100px;
 }
