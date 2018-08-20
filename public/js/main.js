@@ -5,13 +5,10 @@ function delete_data(key) {
 	if(!confirm('삭제할껴?')) {
 		return;
 	}
-	$('ul').delegate("span", "click", function(event){
-		event.stopPropagation();
-		index = $('span').index(this);
-		$('li').eq(index).remove();
 		var memoRef = database.ref('memos/' + userInfo + '/' + key);
+		$("#" + key).remove();
 		memoRef.remove();
-	});
+
 }
 
 
@@ -90,7 +87,7 @@ function delete_data(key) {
 		console.log(memoData)
 		console.log("[★] txt: " + txt);
 
-		$('ul').append(	'<li class="list-group-item">'
+		$('ul').append(	'<li id="' + key + '" class="list-group-item">'
 										+ txt +
 										'<span onclick="delete_data(\'' + key + '\')" class="glyphicon glyphicon-remove"></span>' +
 										'<span class="glyphicon glyphicon-edit"></span>' +
