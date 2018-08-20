@@ -1,17 +1,5 @@
 
 
-function delete_data(key) {
-	console.log("[★] delete_data() key: " + key);
-	if(!confirm('삭제할껴?')) {
-		return;
-	}
-		var memoRef = database.ref('memos/' + userInfo + '/' + key);
-		$("#" + key).remove();
-		memoRef.remove();
-
-}
-
-
 	var index, auth, database, userInfo, selectedKey;
 	// 파이어베이스 초기화
 	var config = {
@@ -25,11 +13,22 @@ function delete_data(key) {
 
 	firebase.initializeApp(config);
 
+	// 로그인 버튼 클릭시 구글인증팝업 열림
+	$("#googleLogin").click(function() {
+			googleLoginPopup();
+	});
+
 	// 구글 인증창 띄우는 함수
 	function googleLoginPopup() {
 			auth = firebase.auth();
 			database = firebase.database();
 			var authProvider = new firebase.auth.GoogleAuthProvider();
+
+			// 인증 지속
+			auth.setPersistence(firebase.auth.Auth.Persistence.LOCAL)
+					.catch(function(error) {
+						console.error('인증 상태 설정 중 에러 발생' , error);
+					});
 
 			// 구글 인증 팝업창
 			auth.onAuthStateChanged(function(user) {
@@ -143,16 +142,15 @@ function delete_data(key) {
 		$('button').prop('disabled', true);
 	});
 
-
-	// 메모 삭제 버튼을 눌렀을 경우
-	function deleteData(key) {
-		$('ul').delegate("span", "click", function(event){
-			event.stopPropagation();
-			index = $('span').index(this);
-			$('li').eq(index).remove();
+	// 메모 삭제 버튼을 누른 경우
+	function delete_data(key) {
+		console.log("[★] delete_data() key: " + key);
+		if(!confirm('삭제할껴?')) {
+			return;
+		}
 			var memoRef = database.ref('memos/' + userInfo + '/' + key);
-		  memoRef.remove(); // firebase remove
-		});
+			$("#" + key).remove();
+			memoRef.remove();
 	}
 
 	// 메모를 클릭 후 수정할 내용을 입력하는 경우
@@ -167,10 +165,7 @@ function delete_data(key) {
 	$('#edit-button').click(function(){
 	});
 
-  // 로그인 버튼 클릭시 구글인증팝업 열림
-  $("#googleLogin").click(function() {
-      googleLoginPopup();
-  });
+
 
 // Javascript Onload. html소스를 먼저 읽고 가장 마지막에 JS소스를 읽는다.
 // $(function(){ } 이렇게 표현해도 된다.
