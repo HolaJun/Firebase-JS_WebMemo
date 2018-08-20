@@ -71,3 +71,44 @@
 [info] i  hosting: Serving hosting files from: public
 [info] +  hosting: Local server: http://localhost:5000
 
+[debug] [2018-08-20T10:34:52.125Z] ----------------------------------------------------------------------
+[debug] [2018-08-20T10:34:52.128Z] Command:       C:\Program Files\nodejs\node.exe C:\Users\HolaJun\AppData\Roaming\npm\node_modules\firebase-tools\bin\firebase serve
+[debug] [2018-08-20T10:34:52.129Z] CLI Version:   4.0.3
+[debug] [2018-08-20T10:34:52.129Z] Platform:      win32
+[debug] [2018-08-20T10:34:52.129Z] Node Version:  v8.11.3
+[debug] [2018-08-20T10:34:52.129Z] Time:          Mon Aug 20 2018 19:34:52 GMT+0900 (대한민국 표준시)
+[debug] [2018-08-20T10:34:52.129Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2018-08-20T10:34:52.154Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2018-08-20T10:34:52.155Z] > authorizing via signed-in user
+[debug] [2018-08-20T10:34:52.157Z] > refreshing access token with scopes: ["email","https://www.googleapis.com/auth/cloud-platform","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","openid"]
+[debug] [2018-08-20T10:34:52.157Z] >>> HTTP REQUEST POST https://www.googleapis.com/oauth2/v3/token  
+ { refresh_token: '1/0gg2kAjA-ry5uQ21lk_lPZseEPFnZwPcJXGVhApCZcU',
+  client_id: '563584335869-fgrhgmd47bqnekij5i8b5pr03ho849e6.apps.googleusercontent.com',
+  client_secret: 'j9iVZfS8kkCEFUPaAeJV0sAi',
+  grant_type: 'refresh_token',
+  scope: 'email https://www.googleapis.com/auth/cloud-platform https://www.googleapis.com/auth/cloudplatformprojects.readonly https://www.googleapis.com/auth/firebase openid' } 
+ Mon Aug 20 2018 19:34:52 GMT+0900 (대한민국 표준시)
+[debug] [2018-08-20T10:34:52.462Z] <<< HTTP RESPONSE 200
+[debug] [2018-08-20T10:34:52.469Z] >>> HTTP REQUEST GET https://admin.firebase.com/v1/projects/webmemo-b9b71  
+  
+ Mon Aug 20 2018 19:34:52 GMT+0900 (대한민국 표준시)
+[debug] [2018-08-20T10:34:53.475Z] <<< HTTP RESPONSE 200
+[debug] [2018-08-20T10:34:53.475Z] >>> HTTP REQUEST GET https://admin.firebase.com/v1/database/webmemo-b9b71/tokens  
+  
+ Mon Aug 20 2018 19:34:53 GMT+0900 (대한민국 표준시)
+[debug] [2018-08-20T10:34:54.272Z] <<< HTTP RESPONSE 200
+[debug] [2018-08-20T10:34:54.273Z] >>> HTTP REQUEST GET https://cloudresourcemanager.googleapis.com/v1/projects/webmemo-b9b71  
+  
+ Mon Aug 20 2018 19:34:54 GMT+0900 (대한민국 표준시)
+[debug] [2018-08-20T10:34:55.229Z] <<< HTTP RESPONSE 200
+[info] 
+[info] === Serving from 'C:\Users\HolaJun\Desktop\memoWebApp'...
+[info] 
+[debug] [2018-08-20T10:34:55.236Z] >>> HTTP REQUEST GET https://mobilesdk-pa.googleapis.com/v1/projects/657504313482/clients/_:getWebAppConfig  
+  
+ Mon Aug 20 2018 19:34:55 GMT+0900 (대한민국 표준시)
+[debug] [2018-08-20T10:34:56.098Z] <<< HTTP RESPONSE 200
+[info] i  hosting: Serving hosting files from: public
+[info] +  hosting: Local server: http://localhost:5000
+

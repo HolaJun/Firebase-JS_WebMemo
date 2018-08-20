@@ -1,8 +1,4 @@
 
-function hello() {
-	alert('hello');
-}
-
 // Javascript Onload. html소스를 먼저 읽고 가장 마지막에 JS소스를 읽는다.
 // $(function(){ } 이렇게 표현해도 된다.
 $(document).ready(function(){
@@ -84,10 +80,11 @@ $(document).ready(function(){
 
 		$('ul').append(	'<li class="list-group-item">'
 										+ txt +
-										'<span onclick="hello();" class="glyphicon glyphicon-remove"></span>' +
+										'<span onclick="delete_data(' + key + ')" class="glyphicon glyphicon-remove"></span>' +
 										'<span class="glyphicon glyphicon-edit"></span>' +
 										'</li>'
 									);
+									console.log("데이터추가됨");
 
 		// $('ul').append(	'<li class="list-group-item" data-toggle="modal" data-target="#editModal">'
 		// 								+ txt +
@@ -168,3 +165,13 @@ $(document).ready(function(){
 
 // end js onload
 });
+
+
+function delete_data(key) {
+	if(!confirm('삭제할껴?')) {
+		return;
+	}
+	var memoRef = database.ref('memos/' + userInfo + '/' + key);
+	memoRef.remove();
+	$("#"+key).remove();
+}
