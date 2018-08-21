@@ -1,5 +1,4 @@
 
-
 	var index, auth, database, userInfo, selectedKey;
 	// 파이어베이스 초기화
 	var config = {
@@ -23,12 +22,6 @@
 			auth = firebase.auth();
 			database = firebase.database();
 			var authProvider = new firebase.auth.GoogleAuthProvider();
-
-			// 인증 지속
-			auth.setPersistence(firebase.auth.Auth.Persistence.LOCAL)
-					.catch(function(error) {
-						console.error('인증 상태 설정 중 에러 발생' , error);
-					});
 
 			// 구글 인증 팝업창
 			auth.onAuthStateChanged(function(user) {
