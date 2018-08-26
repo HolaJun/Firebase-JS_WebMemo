@@ -12,13 +12,12 @@
 
 	firebase.initializeApp(config);
 
-	// 로그인 버튼 클릭시 구글인증팝업 열림
-	$("#googleLogin").click(function() {
-			googleLoginPopup();
-	});
+	// // 로그인 버튼 클릭시 구글인증팝업 열림
+	// $("#googleLogin").click(function() {
+	// 		googleLoginPopup();
+	// });
 
 	// 구글 인증창 띄우는 함수
-	function googleLoginPopup() {
 			auth = firebase.auth();
 			database = firebase.database();
 			var authProvider = new firebase.auth.GoogleAuthProvider();
@@ -39,7 +38,6 @@
 					auth.signInWithPopup(authProvider); // 팝업 창 띄우기
 				}
 			});
-	};
 
 	// 메모리스트 불러오기
 	function get_memo_list() {
