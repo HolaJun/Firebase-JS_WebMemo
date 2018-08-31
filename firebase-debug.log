@@ -112,3 +112,79 @@
 [info] i  hosting: Serving hosting files from: public
 [info] +  hosting: Local server: http://localhost:5000
 
+[debug] [2018-08-21T05:17:03.850Z] ----------------------------------------------------------------------
+[debug] [2018-08-21T05:17:03.862Z] Command:       C:\Program Files\nodejs\node.exe C:\Users\HolaJun\AppData\Roaming\npm\node_modules\firebase-tools\bin\firebase serve
+[debug] [2018-08-21T05:17:03.862Z] CLI Version:   4.0.3
+[debug] [2018-08-21T05:17:03.862Z] Platform:      win32
+[debug] [2018-08-21T05:17:03.862Z] Node Version:  v8.11.3
+[debug] [2018-08-21T05:17:03.863Z] Time:          Tue Aug 21 2018 14:17:03 GMT+0900 (대한민국 표준시)
+[debug] [2018-08-21T05:17:03.864Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2018-08-21T05:17:03.885Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2018-08-21T05:17:03.886Z] > authorizing via signed-in user
+[debug] [2018-08-21T05:17:03.888Z] > refreshing access token with scopes: ["email","https://www.googleapis.com/auth/cloud-platform","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","openid"]
+[debug] [2018-08-21T05:17:03.889Z] >>> HTTP REQUEST POST https://www.googleapis.com/oauth2/v3/token  
+ { refresh_token: '1/0gg2kAjA-ry5uQ21lk_lPZseEPFnZwPcJXGVhApCZcU',
+  client_id: '563584335869-fgrhgmd47bqnekij5i8b5pr03ho849e6.apps.googleusercontent.com',
+  client_secret: 'j9iVZfS8kkCEFUPaAeJV0sAi',
+  grant_type: 'refresh_token',
+  scope: 'email https://www.googleapis.com/auth/cloud-platform https://www.googleapis.com/auth/cloudplatformprojects.readonly https://www.googleapis.com/auth/firebase openid' } 
+ Tue Aug 21 2018 14:17:03 GMT+0900 (대한민국 표준시)
+[debug] [2018-08-21T05:23:28.660Z] ----------------------------------------------------------------------
+[debug] [2018-08-21T05:23:28.660Z] Command:       C:\Program Files\nodejs\node.exe C:\Users\HolaJun\AppData\Roaming\npm\node_modules\firebase-tools\bin\firebase serve
+[debug] [2018-08-21T05:23:28.660Z] CLI Version:   4.1.2
+[debug] [2018-08-21T05:23:28.660Z] Platform:      win32
+[debug] [2018-08-21T05:23:28.660Z] Node Version:  v8.11.3
+[debug] [2018-08-21T05:23:28.660Z] Time:          Tue Aug 21 2018 14:23:28 GMT+0900 (대한민국 표준시)
+[debug] [2018-08-21T05:23:28.660Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2018-08-21T05:23:28.676Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2018-08-21T05:23:28.676Z] > authorizing via signed-in user
+[debug] [2018-08-21T05:23:28.676Z] > refreshing access token with scopes: ["email","https://www.googleapis.com/auth/cloud-platform","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","openid"]
+[debug] [2018-08-21T05:23:28.676Z] >>> HTTP REQUEST POST https://www.googleapis.com/oauth2/v3/token  
+
+[debug] [2018-08-21T05:23:28.988Z] <<< HTTP RESPONSE 200
+[debug] [2018-08-21T05:23:29.004Z] >>> HTTP REQUEST GET https://admin.firebase.com/v1/projects/webmemo-b9b71  
+ 
+[debug] [2018-08-21T05:23:29.907Z] <<< HTTP RESPONSE 200
+[debug] [2018-08-21T05:23:29.909Z] >>> HTTP REQUEST GET https://cloudresourcemanager.googleapis.com/v1/projects/webmemo-b9b71  
+ 
+[debug] [2018-08-21T05:23:30.822Z] <<< HTTP RESPONSE 200
+[info] 
+[info] === Serving from 'C:\Users\HolaJun\Desktop\memoWebApp'...
+[info] 
+[debug] [2018-08-21T05:23:30.822Z] >>> HTTP REQUEST GET https://mobilesdk-pa.googleapis.com/v1/projects/657504313482/clients/_:getWebAppConfig  
+ 
+[debug] [2018-08-21T05:23:31.659Z] <<< HTTP RESPONSE 200
+[info] i  hosting: Serving hosting files from: public
+[info] +  hosting: Local server: http://localhost:5000
+
+[debug] [2018-08-26T11:06:23.411Z] ----------------------------------------------------------------------
+[debug] [2018-08-26T11:06:23.414Z] Command:       C:\Program Files\nodejs\node.exe C:\Users\HolaJun\AppData\Roaming\npm\node_modules\firebase-tools\bin\firebase serve
+[debug] [2018-08-26T11:06:23.414Z] CLI Version:   4.1.2
+[debug] [2018-08-26T11:06:23.415Z] Platform:      win32
+[debug] [2018-08-26T11:06:23.415Z] Node Version:  v8.11.3
+[debug] [2018-08-26T11:06:23.417Z] Time:          Sun Aug 26 2018 20:06:23 GMT+0900 (대한민국 표준시)
+[debug] [2018-08-26T11:06:23.417Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2018-08-26T11:06:23.440Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2018-08-26T11:06:23.442Z] > authorizing via signed-in user
+[debug] [2018-08-26T11:06:23.445Z] > refreshing access token with scopes: ["email","https://www.googleapis.com/auth/cloud-platform","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","openid"]
+[debug] [2018-08-26T11:06:23.445Z] >>> HTTP REQUEST POST https://www.googleapis.com/oauth2/v3/token  
+
+[debug] [2018-08-26T11:06:23.890Z] <<< HTTP RESPONSE 200
+[debug] [2018-08-26T11:06:23.896Z] >>> HTTP REQUEST GET https://admin.firebase.com/v1/projects/webmemo-b9b71  
+ 
+[debug] [2018-08-26T11:06:24.880Z] <<< HTTP RESPONSE 200
+[debug] [2018-08-26T11:06:24.881Z] >>> HTTP REQUEST GET https://cloudresourcemanager.googleapis.com/v1/projects/webmemo-b9b71  
+ 
+[debug] [2018-08-26T11:06:25.867Z] <<< HTTP RESPONSE 200
+[info] 
+[info] === Serving from 'C:\Users\HolaJun\Desktop\memoWebApp'...
+[info] 
+[debug] [2018-08-26T11:06:25.879Z] >>> HTTP REQUEST GET https://mobilesdk-pa.googleapis.com/v1/projects/657504313482/clients/_:getWebAppConfig  
+ 
+[debug] [2018-08-26T11:06:26.768Z] <<< HTTP RESPONSE 200
+[info] i  hosting: Serving hosting files from: public
+[info] +  hosting: Local server: http://localhost:5000
+

@@ -37,6 +37,9 @@ try {
 print();
 */
 
+
+
+/*
 var logs = []; // 장부의 내역을 담음
 
 var total = 0;
@@ -68,3 +71,30 @@ try {
 } catch(e) {
   console.log(e);
 }
+*/
+
+/*
+function swap(a, b) {
+  var temp;
+  temp=a;
+  a=b;
+  b=temp;
+  console.log(`${a}, ${b}`);
+}
+
+var x = 5;
+var y = 10;
+swap(x, y);
+*/
+
+// 가계부 추상화
+class AccountBook {
+  //속성과 행동: 내역, 이름, 입출금, 출력
+  constructor(name) {
+    //this: instance 자체의 값이 생성된다?
+    this.name = name;
+  }
+}
+
+var ac1 = new AccountBook('안녕');
+console.log(ac1, AccountBook);
